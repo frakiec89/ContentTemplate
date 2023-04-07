@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ContentTemplate.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,8 +39,10 @@ namespace ContentTemplate
 
         private void bthChange_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("В разработке");
-
+           
+            var b = e.OriginalSource as Button;
+           var s = b.DataContext as Student;
+            MessageBox.Show("Вы выбрали студента по  имени - " + s.Name);
         }
 
         private void addGroup_Click(object sender, RoutedEventArgs e)
