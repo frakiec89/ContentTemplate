@@ -30,13 +30,41 @@ namespace ContentTemplate.Services
             try
             {
                 DB.MyContext context = new DB.MyContext();
-                return context.Students.Include(x => x.Group).ToList();
+                 return   context.Students.Include(x => x.Group).ToList();
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
          
+        }
+
+        internal void Remove(Student student)
+        {
+            try
+            {
+                DB.MyContext context = new DB.MyContext();
+                context.Students.Remove(student);
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        internal void UpdateStudent(Student student)
+        {
+            try
+            {
+                DB.MyContext context = new DB.MyContext();
+                context.Students.Update(student);
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

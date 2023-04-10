@@ -26,6 +26,11 @@ namespace ContentTemplate
         public MainWindow()
         {
             InitializeComponent();
+            RunContent();
+        }
+
+        private void RunContent()
+        {
             try
             {
                 studentService = new Services.StudentService();
@@ -33,28 +38,57 @@ namespace ContentTemplate
             }
             catch (Exception ex)
             {
-               MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void bthChange_Click(object sender, RoutedEventArgs e)
         {
-           
-            var b = e.OriginalSource as Button;
-           var s = b.DataContext as Student;
-            MessageBox.Show("Вы выбрали студента по  имени - " + s.Name);
+            var b = sender as Button;
+            var s = b.DataContext as Student;
+            MyForms.StudentChangeWindow window = new MyForms.StudentChangeWindow(s);
+            window.Show();
         }
-
         private void addGroup_Click(object sender, RoutedEventArgs e)
         {
             MyForms.AddGroupWindow window = new MyForms.AddGroupWindow();
             window.Show();
         }
-
         private void addStudent_Click(object sender, RoutedEventArgs e)
         {
             MyForms.AddSudentWindow window = new MyForms.AddSudentWindow();
             window.Show();
+        }
+
+        /// <summary>
+        /// Обновить список
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btbRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            RunContent();
+        }
+
+        private void bthDell_Click(object sender, RoutedEventArgs e)
+        {
+            var b = sender as Button;
+            var s = b.DataContext as Student;
+            var res = MessageBox.Show($" Удаление студента {s.Name}, Вы уверены?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) ;
+
+            if (res == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    Services.StudentService service = new Services.StudentService();
+                    service.Remove(s);
+                    MessageBox.Show("Студент  удален, обновите список");
+                }
+                catch (Exception ex)
+                {
+                   MessageBox.Show(ex.Message);
+                }
+            }
         }
     }
 }

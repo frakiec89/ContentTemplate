@@ -29,7 +29,6 @@ namespace ContentTemplate.MyForms
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
         }

@@ -8,9 +8,9 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel>
+            <Button Margin="5" Name="btbRefresh" Click="btbRefresh_Click">Обновить контент</Button>
             <Button Margin="5" Name="addGroup" Click="addGroup_Click">Добавить группу </Button>
             <Button Margin="5" Name="addStudent" Click="addStudent_Click"
-                    
                     >Добавить студента </Button>
             <ListBox x:Name="listBoxContent">
                 <ListBox.ItemTemplate>
@@ -32,6 +32,7 @@
 
                             <Border Grid.Row="0" Grid.Column="0" Grid.RowSpan="4"
                                     MinWidth="50" MinHeight="50"
+                                    MaxHeight="100" MaxWidth="100"
                                 BorderBrush="Black" BorderThickness="1">
                                 <Image Source="{Binding PathImage}" />
                             </Border>
@@ -40,21 +41,21 @@
                                         Margin="5" Grid.Row="0" Grid.Column="1"
                                         >
                                 <TextBlock>Имя:</TextBlock>
-                                <TextBlock Text="{Binding Name}"></TextBlock>
+                                <TextBlock Margin="10,0,0,0" Text="{Binding Name}"></TextBlock>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal"
                                         Margin="5" Grid.Row="1" Grid.Column="1"
                                         >
                                 <TextBlock>Фамилия:</TextBlock>
-                                <TextBlock Text="{Binding SurName}"></TextBlock>
+                                <TextBlock     Margin="10,0,0,0" Text="{Binding SurName}"></TextBlock>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal"
                                         Margin="5" Grid.Row="2" Grid.Column="1"
                                         >
                                 <TextBlock>Группа:</TextBlock>
-                                <TextBlock Text="{Binding Group.Name}"></TextBlock>
+                                <TextBlock Margin="10,0,0,0" Text="{Binding Group.Name}"></TextBlock>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal"
@@ -71,7 +72,11 @@
                                 <Button x:Name="bthChange" 
                                         Margin="5" Padding="2" Click="bthChange_Click"
                                         >Ред-вать</Button>
-                                
+
+                                <Button x:Name="bthDell" 
+                                        Margin="5" Padding="2" Click="bthDell_Click"
+                                        >Удалить</Button>
+
                             </StackPanel>
 
 

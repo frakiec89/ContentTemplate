@@ -1,0 +1,40 @@
+﻿<Window x:Class="ContentTemplate.MyForms.StudentChangeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ContentTemplate.MyForms"
+        mc:Ignorable="d"
+        Title="StudentChangeWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <StackPanel Margin="5" Orientation="Horizontal">
+                <TextBlock Margin="5">Введите имя студента:</TextBlock>
+                <TextBox x:Name="tbName" Margin="5" MinWidth="150"
+                         ></TextBox>
+            </StackPanel>
+
+
+            <StackPanel Margin="5" Orientation="Horizontal">
+                <TextBlock Margin="5">Введите Фамилию студента:</TextBlock>
+                <TextBox x:Name="tbSurName" Margin="5" MinWidth="150"
+                         ></TextBox>
+            </StackPanel>
+
+            <StackPanel Margin="5" Orientation="Horizontal">
+                <TextBlock Margin="5">Введите путь  к фото:</TextBlock>
+                <TextBox x:Name="tbImage" Margin="5" MinWidth="150"
+                         ></TextBox>
+            </StackPanel>
+
+            <StackPanel Margin="5" Orientation="Horizontal">
+                <TextBlock Margin="5">Укажите группу:</TextBlock>
+                <ComboBox x:Name="cbGroups" Margin="5" MinWidth="150"
+                         ></ComboBox>
+            </StackPanel>
+
+            <Button Margin="5" Click="Button_Click">Сохранить</Button>
+        </StackPanel>
+
+    </Grid>
+</Window>

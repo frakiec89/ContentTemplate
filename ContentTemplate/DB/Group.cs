@@ -21,9 +21,9 @@ namespace ContentTemplate.DB
     {
         public int StudentId { get; set; }
         public string Name { get; set; }
-        public string SurName { get; set; }
+        public string SurName { get ; set; }
 
-        public string  PathImage { get; set; }
+        public string  PathImage { get ; set; } 
         public bool IsStudent { get; set; }
         public int GroupId { get; set; }
 
